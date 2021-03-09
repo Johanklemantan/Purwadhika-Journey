@@ -1,0 +1,26 @@
+[
+    {
+        "nama": "alex",
+        "pekerjaan": "ojek online",
+        "gaji": "10000000",
+        "tahun_lama_kerja": "1"
+    },
+    {
+        "nama": "boruto",
+        "pekerjaan": "ninja",
+        "gaji": "0",
+        "tahun_lama_kerja": "10"
+    },
+    {
+        "nama": "charli",
+        "pekerjaan": "programmer",
+        "gaji": "20000000",
+        "tahun_lama_kerja": "3"
+    },
+    {
+        "nama": "diego",
+        "pekerjaan": "atlet bola",
+        "gaji": "40000000",
+        "tahun_lama_kerja": "5"
+    }
+]

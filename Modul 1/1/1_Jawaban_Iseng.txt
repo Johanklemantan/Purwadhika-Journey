@@ -1,0 +1,51 @@
+No 3
+
+x = 485;
+Tahun = str(round(x/360));
+Bulan = str(round((x-360)/30));
+Hari = str((((x-360)%30)));
+print("485 hari = " + Tahun + " Tahun, " + Bulan + " Bulan, " + Hari + " Hari.")
+
+No 4
+
+Total = int(input("Masukan Total Umur = "))
+Rasio = float(input("Masukan Rasio Umur = "))
+
+Umur_A = (10*Total)/(10+(Rasio*10))
+Umur_B = Total-Umur_A
+
+print(Umur_A+2);
+print(Umur_B+2)
+
+No 5
+Test = "Halo Duniaaa"
+count = 0
+for i in Test:
+    if i == "A":
+        count +=1
+print(count)
+
+ATAU
+
+Kata = "HAlo Dunia"
+print(Kata.count("a"))
+
+No 6
+import math
+
+Jarak = int(input("Masukkan jarak = "))
+Speed_A = int(input("Masukkan kecepatan A = "))
+Speed_B = int(input("Masukkan kecepatan B = "))
+Jam_Awal= int(input("Masukkan Jam Start = "))
+Menit_Awal = int(input("Masukkan Menit Start = "))
+
+Jam = Jam_Awal + (Menit_Awal/60)
+
+Jam_bertabrakan = Jarak/(Speed_A + Speed_B) + Jam
+
+Jam_akhir = math.floor(Jam_bertabrakan)
+Menit_akhir = math.ceil((Jam_bertabrakan - Jam_akhir)*60)
+
+Jam_akhir1 = str(Jam_akhir);
+Menit_akhir1 = str(Menit_akhir)
+print("A & B akan bertemu pada jam " + Jam_akhir1 + " lewat " + Menit_akhir1 + " Menit")

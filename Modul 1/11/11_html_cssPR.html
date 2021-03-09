@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan HTML</title>
+    <link rel="stylesheet"
+    type="text/css"
+    href="11_ini_cssPR.css">
+</head>
+<body>
+    <!-- Header -->
+    <h1>Hello World 1</h1>
+    <h2>Hello World 2</h2>
+    <h3>Hello World 3</h3>
+    <h4>Hello World 4</h4>
+    <h5>Hello World 5</h5>
+    <h6>Hello World 6</h6>
+
+    <!-- Center = Memposisikan content di tengah page -->
+    <center>
+        <p>Ini jadi di tengah</p>
+        <p>Ini jadi di tengah 2</p>
+        <!-- Jika ingin bikin tombol ke web page lain, pake https -->
+        <a href='https://facebook.com'>Visit Facebook</a>
+        
+        <!-- nampilin gambar -->
+        <p> 
+            <img src='https://i.pinimg.com/originals/e8/27/af/e827af6fc27e84d4fce3636179f27c99.png' alt='Saitama'
+            width=10%>
+        </p>
+
+        <!-- Text Formatting -->
+        <p>
+        <b> Ini Bold </b><br>
+        <strong> Ini Strong </strong><br>
+        <i> Ini Italic </i><br>
+        <em> Ini Emphasized </em><br>
+        <mark> Ini Marked </mark><br>
+        <small> Ini Small </small><br>
+        <del> Ini Deleted </del><br>
+        <ins> Ini inserted </ins><br>
+        <!-- Pangkat bawah -->
+        H<sub>2</sub>O<br>
+         <!-- Pangkat atas -->
+        X<sup>2</sup> + y<sup>3</sup><br>
+
+        <!-- Table -->
+        <h2>Table 1</h2>
+        <table>
+            <tr>
+                <th> Nama </th>
+                <th> TTL </th>
+                <th> Alamat </th>
+            </tr>
+            <tr>
+                <td> Galih </td>
+                <td> Surabaya, 2 Agustus 1991</td>
+                <td> Jl. Mawar </td>
+            </tr>
+            <tr>
+                <td> Ratna </td>
+                <td> Jombang, 29 Februari 1994</td>
+                <td> Jl. Melati </td>
+            </tr>
+        </table>
+
+        <h2>Table 2</h2>
+        <table>
+            <tr>
+                <th> Nama </th>
+                <th> TTL </th>
+                <th> Alamat </th>
+            </tr>
+            <tr>
+                <td> Galih </td>
+                <td> Surabaya, 2 Agustus 1991</td>
+                <td> Jl. Mawar </td>
+            </tr>
+            <tr>
+                <td> Ratna </td>
+                <td> Jombang, 29 Februari 1994</td>
+                <td> Jl. Melati </td>
+            </tr>
+        </table>
+        <br>
+        <h2>Purwadhika Leauge 2020</h2>
+
+        <table class='pwdk'>
+            <tr>
+                <th class='pwdk'> <mark><i>Rank</i></mark> </th>
+                <th class='pwdk'> <mark><i>Club</i></mark> </th>
+                <th class='pwdk'> <mark><i>Logo</i></mark> </th>
+                <th class='pwdk'> <mark><i>Function</i></mark> </th>
+                <th class='pwdk'> <mark><i>Level</i></mark> </th>
+                <th class='pwdk'> <mark><i>OK</i></mark> </th>
+            </tr>
+            <tr>
+                <td class='pwdk'> 1<sup>st</sup> </td>
+                <td class='pwdk'> <b>Barcelona <sub>FC</sub></b></td>
+                <td> <center><img src='https://upload.wikimedia.org/wikipedia/id/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png'
+                    width=50></center></td>
+                <td> 2x<sup>3</sup> + 3x<sup>2</sup> - x - 13 = 0 </td>
+                <td> <input type='radio' name='level' value='ju'> Junior
+                    <input type='radio' name='level' value='pro' checked> Professional</td>
+                <td> <input type='submit' value='Edit'> </td>
+            </tr>
+            <tr>
+                <td> 2<sup>nd</sup> </td>
+                <td> <b>Bayern<sub>Munich</sub></b></td>
+                <td> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/180px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png'
+                    width=55> </td>
+                <td> 3y<sup>3</sup> - 5y<sup>2</sup> - 2y + 3 = 0 </td>
+                <td> <input type='radio' name='level2' value='ju' checked> Junior
+                    <input type='radio' name='level2' value='pro'> Professional</td>
+                <td> <input type='submit' value='Edit'> </td>
+            </tr>
+            <tr>
+                <td> 3<sup>rd</sup> </td>
+                <td> <b>Real <sub>Madrid</sub></b></td>
+                <td> <center><img src='../DISINI/rmlogo.png' width=55></center> </td>
+                <td> 2z<sup>3</sup> + z<sup>2</sup> - 2z + 5 = 0 </td>
+                <td> <input type='radio' name='level3' value='ju' checked> Junior
+                    <input type='radio' name='level3' value='pro'> Professional</td>
+                <td> <input type='submit' value='Edit'> </td>
+            </tr>
+        </table>
+        <br>
+        <b>Ridho c 2017</b><br>
+        ridhoaryo@gmail.com
+
+        <p class='mobil' id='avanza'> Ini Avanza </p>
+        <p class='mobil' id='alya'> Ini Alya </p>
+
+        </p>
+        <br>
+        <!-- HTML Form -->
+        <form>
+            Nama <input type='text' name='nama'>
+            <br>
+            Usia <input type="number" name='usia'>
+            <br>
+            <input type='radio' name='sex' value='P'> Pria
+            <input type='radio' name='sex' value='W' checked> Wanita
+            <br>
+
+            <input type='submit' value='OK'>
+        </form>
+        <br>
+
+    </center>
+
+
+
+
+</body>
+</html>
