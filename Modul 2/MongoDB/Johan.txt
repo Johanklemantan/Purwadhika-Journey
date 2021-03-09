@@ -1,0 +1,158 @@
+SHOW DATABASE
+show dbs
+
+CEK LAGI DI DB MANA
+db
+
+### Pake control enter buat pindah baris tanpa me - run ###
+### Pake ; diakhir kalo ngasi tau kalo syntax nya udah beres ###
+
+PINDAH DB
+use admin
+
+HAPUS DB
+db.dropDatabase()
+
+CREATE COLLECTION
+db.createCollection('tweet')
+show collections
+
+
+
+INSERT FIELD INTO COLLECTION
+db.tweet.insert({
+... title:'Post One',
+... body:'Body of post one',
+... category:'News',
+... tags:['News','Events'],
+... user:{
+... name:'John',
+... status:'Author'},
+... date:Date()})
+
+SHOW COLLECTION
+db.tweet.find()
+db.tweet.find().pretty()
+
+INSERT MANY FIELD INTO COLLECTION
+db.tweet.insertMany([
+  {
+    title: 'Post Two',
+    body: 'Body of post two',
+    category: 'Technology',
+    date: Date()
+  },
+  {
+    title: 'Post Three',
+    body: 'Body of post three',
+    category: 'News',
+    date: Date()
+  },
+  {
+    title: 'Post Four',
+    body: 'Body of post three',
+    category: 'Entertainment',
+    date: Date()
+  }
+])
+
+WHERE
+db.tweet.find({category:'News'}).pretty()
+Case Sensitive
+db.tweet.find({category:'news'}).pretty()
+
+SORT
+1:Ascending
+-1:Descending
+db.tweet.find().sort({title:1}).pretty()
+
+COUNT
+db.tweet.find().count()
+db.tweet.find({category:'News'}).count()
+
+LIMIT
+db.tweet.find().limit(2).pretty()
+#Munculin 2 pertama (muncul 1 & 2)
+
+LIMIT & SKIP
+db.tweet.find().skip(1).limit(2).pretty()
+#Munculin 2 pertama, tapi yang no 1 di skip. Jadi muncul (2 & 3)
+
+db.tweet.find().limit(2).sort({title:1}).pretty()
+
+FUNCTION
+(mirip2 for loop)
+db.tweet.find().forEach(function(doc){
+... print("Blog Post:" + doc.title)});
+
+## Bisa di chaining juga. disort dulu baru di function in.
+db.tweet.find().sort({title:1}).forEach(function(doc){ print("Blog Post:" + doc.title)});
+
+
+db.tweet.findOne({category:'News'})
+
+UPDATE
+# Pake $ set untuk nambahin tok. kecuali ada yang sama diganti.
+# Tanpa $ set untuk mengganti. jadi lainnya ilang.
+db.tweet.update({title:'Post Two'},{title:'Post Two Update',body:'New Body Post Two',date:Date()},
+... {upsert:true})
+db.tweet.update({title:'Post Two Update'},{ $set:{ body:'New Body Post Two 2', category:'Technology'} });
+db.tweet.update({title:'Post Two Update'},{$set:{user:'Eddy Brokolay'}});
+
+db.tweet.update({title:"Post Two Update"},{$set: {likes:0} });
+
+db.tweet.update({title:"Post Two Update"},{$inc: {likes:6} });
+
+##Update semua fields
+db.tweet.updateMany({},{$set:{views : 10}})
+
+RENAME FIELDS
+db.tweet.update({title:"Post Two Update"},{$rename: {likes:'views'} });
+
+REMOVE 
+db.tweet.remove({_id:ObjectId("5fd18dff6ad964a984e10123")});
+
+# Remove jika yang akan dihapus lebih dari 1, maka SMUA AKAN DIHAPUS
+db.tweet.remove({title:"Post Two")});
+
+ELEMENT MATCH:
+db.tweet.find({comments: {$elemMatch: {body: 'Comment Two'} } }).pretty();
+
+db.tweet.update({title: 'Post One'}, { $set: { comments : [ { body: 'Comment One', user: 'Mary', date: Date()}, { body: 'Comment Two', user: 'Harry', date: Date()} ] } });
+
+db.tweet.find({comments: {$elemMatch: {user: 'Mary'} } });
+
+DEFINE DULU KALO SI TITLE ITU TEXT
+db.tweet.createIndex({title:'text'})
+db.tweet.find({ $text:{ $search: "\"Post T\""} }).pretty()
+
+REGEX
+MENCARI category yang diakhiri dengan s
+db.tweet.find({category:{$regex: /s$/}}).pretty()
+
+MENCARI category yang diawali dengan N
+db.tweet.find({category:{$regex: /^N/}}).pretty()
+
+db.tweet.find({category:{$regex: 'ent'}}).pretty()d
+## Option i artinya hiraukan capital
+db.tweet.find({category:{$regex: 'ent', $options:'i'}}).pretty()
+
+GREATER THAN and LESS THAN
+db.tweet.find({views :{$gt:5}}).pretty()
+db.tweet.find({views :{$gte:5}}).pretty()
+db.tweet.find({views :{$lt:20}}).pretty()
+db.tweet.find({views :{$lte:20}}).pretty()
+
+BETWEEN
+db.tweet.find({views :{$lt:20},views:{$gt:5}}).pretty()
+db.tweet.find({views :{$lt:20,$gt:5}}).pretty()
+
+
+AND
+db.tweet.find({$and:[{category:'News'},{views:{$gt:5}}]}).pretty()
+
+OR
+db.tweet.find({$or:[{category:'News'},{views:{$gt:5}}]}).pretty()
+db.tweet.find({$or:[{category:'News'},{views:{$lt:20}}]}).pretty()
+
+

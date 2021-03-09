@@ -1,0 +1,139 @@
+show dbs
+
+use admin
+
+db.dropDatabase()
+
+db.createCollection('tweet')
+
+db.tweet.insert({
+... title: 'Post One',
+... body: 'Body of post one',
+... category: 'News',
+... tags: ['News', 'Events'],
+... user: {
+... name: 'John',
+... status: 'Author'},
+... date: Date()})
+
+db.tweet.find()
+
+db.tweet.find().pretty()
+
+db.tweet.insertMany([
+  {
+    title: 'Post Two',
+    body: 'Body of post two',
+    category: 'Technology',
+    date: Date()
+  },
+  {
+    title: 'Post Three',
+    body: 'Body of post three',
+    category: 'News',
+    date: Date()
+  },
+  {
+    title: 'Post Four',
+    body: 'Body of post three',
+    category: 'Entertainment',
+    date: Date()
+  }
+])
+
+db.tweet.find({category: 'News'}).pretty()
+
+db.tweet.find().sort({title: 1}).pretty()
+
+db.tweet.find().sort({title: -1}).pretty()
+
+db.tweet.find().count()
+
+db.tweet.find().limit(2).pretty()
+
+db.tweet.find().limit(2).skip(1).pretty()
+
+db.tweet.find().forEach(function(doc) {
+... print("Blog Post: " + doc.title)
+... });
+
+
+db.tweet.update({title: 'Post Two'},
+... {title: 'Post Two Update',
+... body: 'New Body Post Two',
+... date: Date()},
+... {upsert: true})
+
+
+db.tweet.update({title: 'Post Two'}, {
+... $set: {
+... body: 'New Body Post Two 2',
+... category: 'Technology'}
+... });
+
+
+db.tweet.update({title: 'Post Two Update'}, { $inc:{ likes: 6 } })
+
+
+db.tweet.update({title: 'Post Two Update'}, { $rename: {likes: 'views'} });
+
+db.tweet.insertMany([
+  {
+    title: 'Post Two',
+    body: 'Body of post two',
+    category: 'Technology',
+    date: Date()
+  },
+  {
+    title: 'Post Two',
+    body: 'Body of post two',
+    category: 'Technology',
+    date: Date()
+  },
+  
+])
+
+db.tweet.update({title: 'Post One'}, { $set: { comments : [ { body: 'Comment One', user: 'Mary', date: Date()}, { body: 'Comment Two', user: 'Harry', date: Date()} ] } });
+
+
+db.tweet.createIndex({title: 'text'})
+
+
+
+db.tweet.find({ views: {$gt:5}}).pretty();
+
+db.tweet.find({ views: {$gte:5}}).pretty();
+
+
+db.tweet.find({$and: [{category: 'News'}, {views : {$gt: 5}}]}).pretty();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
