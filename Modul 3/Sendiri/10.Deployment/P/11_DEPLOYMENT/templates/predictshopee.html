@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="scripts.js">
+	</script>
+	<link rel="stylesheet" href="styles.css">
+    <title>Email Prediction</title>
+</head>
+
+<body style="background-image: url({{url_for('static',filename='bb.jpg') }})">
+
+    <!-- HEADING -->
+    <center><br>
+        <img src="../static/logo.png" width="8%" ><br><br>
+        <h2 class="display-4"><strong>User's Action to Read Email or Not</strong> <span class="badge badge-secondary">Prediction</span></h2>
+        <br>
+    </center>
+
+    <div class="container-fluid"></div>
+        <center>
+        <form method="POST" action = "http://127.0.0.1:5000/result">
+
+        <h5><span class="badge badge-secondary">1. Age</span><br>   
+            <input type="number" name="age" step="1" min="15" max="90" placeholder="Age" required/></h5>
+
+        <h5><span class="badge badge-secondary">2. Email Domain</span><br>
+            <input type="radio" id="@gmail.com" name="domain" value="@gmail.com">
+            <label for="@gmail.com">@gmail.com</label><br>
+            <input type="radio" id="@yahoo.com" name="domain" value="@yahoo.com">
+            <label for="@yahoo.com">@yahoo.com</label><br>
+            <input type="radio" id="other" name="domain" value="other">
+            <label for="other">other</label></h5>
+
+        <h5><span class="badge badge-secondary">3. User Country</span><br>
+            <input type="radio" id="Singapore" name="country" value="Singapore">
+            <label for="Singapore">Singapore</label><br>
+            <input type="radio" id="Malaysia" name="country" value="Malaysia">
+            <label for="Malaysia">Malaysia</label><br>
+            <input type="radio" id="Indonesia" name="country" value="Indonesia">
+            <label for="Indonesia">Indonesia</label><br>
+            <input type="radio" id="Philippines" name="country" value="Philippines">
+            <label for="Philippines">Philippines</label><br>
+            <input type="radio" id="Taiwan" name="country" value="Taiwan">
+            <label for="Taiwan">Taiwan</label><br>
+            <input type="radio" id="Thailand" name="country" value="Thailand">
+            <label for="Thailand">Thailand</label><br>
+            <input type="radio" id="Vietnam" name="country" value="Vietnam">
+            <label for="Vietnam">Vietnam</label><br></h5>
+
+        <h5><span class="badge badge-secondary">4. Day When the Email Sent</span><br>
+            <input type="radio" id="Monday" name="day" value="Monday">
+            <label for="Monday">Monday</label><br>
+            <input type="radio" id="Tuesday" name="day" value="Tuesday">
+            <label for="Tuesday">Tuesday</label><br>
+            <input type="radio" id="Wednesday" name="day" value="Wednesday">
+            <label for="Wednesday">Wednesday</label><br>
+            <input type="radio" id="Thursday" name="day" value="Thursday">
+            <label for="Thursday">Thursday</label><br>
+            <input type="radio" id="Friday" name="day" value="Friday">
+            <label for="Friday">Friday</label><br>
+            <input type="radio" id="Saturday" name="day" value="Saturday">
+            <label for="Saturday">Saturday</label><br>
+            <input type="radio" id="Sunday" name="day" value="Sunday">
+            <label for="Sunday">Sunday</label><br></h5>
+
+
+        <h5><span class="badge badge-secondary">5. Email Subject Character Length</span><br>
+            <input type="radio" id="ideal" name="character_length" value="ideal">
+            <label for="ideal">Ideal</label><br>
+            <input type="radio" id="not ideal" name="character_length" value="not ideal">
+            <label for="not ideal">Not Ideal</label><br></h5>
+
+        <h5><span class="badge badge-secondary">6A. Last Time Open Email</span><br>
+            <input type="radio" id="0-1 year login email" name="last_time_open_email" value="0-1 year">
+            <label for="0-1 year login email">0-1 Year</label><br>
+            <input type="radio" id="1-2 years login email" name="last_time_open_email" value="1-2 years">
+            <label for="1-2 years login email">1-2 Years</label><br>
+            <input type="radio" id="2-3 years login email" name="last_time_open_email" value="2-3 years">
+            <label for="2-3 years login email">2-3 Years</label><br>
+            <input type="radio" id="more than 3 years login email" name="last_time_open_email" value="more than 3 years">
+            <label for="more than 3 years login email">More Than 3 Years</label><br></h5>
+
+        <h5><span class="badge badge-secondary">6B. Last Time Open Shopee Account</span><br>
+            <input type="radio" id="0-1 year login Shopee" name="last_time_open_shopee" value="0-1 year">
+            <label for="0-1 year login Shopee">0-1 Year</label><br>
+            <input type="radio" id="1-2 years login Shopee" name="last_time_open_shopee" value="1-2 years">
+            <label for="1-2 years login Shopee">1-2 Years</label><br>
+            <input type="radio" id="2-3 years login Shopee" name="last_time_open_shopee" value="2-3 years">
+            <label for="2-3 years login Shopee">2-3 Years</label><br>
+            <input type="radio" id="more than 3 years login Shopee" name="last_time_open_shopee" value="more than 3 years">
+            <label for="more than 3 years login Shopee">More Than 3 Years</label><br></h5>
+
+        <h5><span class="badge badge-secondary">6C. Last Time Checkout(Buy Product) at Shopee</span><br>
+            <input type="radio" id="0-1 year checkout Shopee" name="last_time_checkout_shopee" value="0-1 year">
+            <label for="0-1 year checkout Shopee">0-1 Year</label><br>
+            <input type="radio" id="1-2 years checkout Shopee" name="last_time_checkout_shopee" value="1-2 years">
+            <label for="1-2 years checkout Shopee">1-2 Years</label><br>
+            <input type="radio" id="2-3 years checkout Shopee" name="last_time_checkout_shopee" value="2-3 years">
+            <label for="2-3 years checkout Shopee">2-3 Years</label><br>
+            <input type="radio" id="more than 3 years checkout Shopee" name="last_time_checkout_shopee" value="more than 3 years">
+            <label for="more than 3 years checkout Shopee">More Than 3 Years</label><br></h5>
+
+        <h5><span class="badge badge-secondary">7A. Frequency of Open Email per Day</span><br>   
+            <input type="number" name="open_frequency" step="0.1" min="0" max="2.8" required/></h5>
+
+        <h5><span class="badge badge-secondary">7B. Frequency of Open Shopee App per Day</span><br>   
+            <input type="number" name="login_frequency" step="0.1" min="0" max="23" required/></h5>
+
+        <h5><span class="badge badge-secondary">7C. Frequency of Checking Out at Shopee per Day</span><br>   
+            <input type="number" name="checkout_frequency" step="0.1" min="0" max="15" required/></h5>
+
+
+        <!-- <h5><span class="badge badge-secondary">TOEFL Score</span>
+            <input type="number" name="tf" step="1" min="92" max="120" placeholder="Type your TOEFL Score" required/></h5>
+
+        <h5><span class="badge badge-secondary">University Rating</span>
+            <input type="number" name="ur" step="1" min="1" max="5" placeholder="Type your Universtiy Rating" required/></h5>
+        
+        <h5><span class="badge badge-secondary">SOP</span>
+            <input type="number" name="sp" step="1" min="1" max="5" placeholder="Type your SOP Score" required/></h5>  -->
+<!-- 
+        <h5><span class="badge badge-secondary">LOR</span>
+            <input type="number" name="lr" step="1" min="1" max="5" placeholder="Type your LOR Score" required/></h5>
+
+        <h5><span class="badge badge-secondary">CGPA</span>
+            <input type="number" name="gp" step="0.1" min="6.8" max="9.92" placeholder="Type your CGPA Score" required/></h5>  -->
+
+        <!-- <h5><span class="badge badge-secondary">Research</span>
+            <input type="number" name="rs" step="1" min="0" max="1" placeholder="Type your Research Score" required/></h5> -->
+
+        <br><br>
+        <button style="height:45px;width:150px;font-size: 20px;text-align: center;line-height: 20px;background-color:#2a7886; color: cornsilk; type="button" class="btn btn-info">🔍 Predict</button>
+        </form><br>
+        </center>
+    </div>
+    <br>
+
+    <!-- Log Out -->
+    <center>
+        <form action = "http://127.0.0.1:5000">
+        <button style="height:45px;width:150px;font-size: 20px;text-align: center;line-height: 20px; background-color: #f50101;color: cornsilk;  type="button" class="btn btn-info"">Home</button>
+        </form><br><br>
+    </center>
+    
+    <!--JavaScript at end of body for optimized loading-->
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body>
+</html>
